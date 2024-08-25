@@ -13,3 +13,4 @@ Route::get('/posts/{id}/destroy', [postController::class, "destroy"])->name("pos
 ### create new object
 # http request method --> post
 Route::post("/posts", [postController::class, 'store'])->name("posts.store");
+Route::put("/posts/{id}", [postController::class, 'update'])->name("posts.update");

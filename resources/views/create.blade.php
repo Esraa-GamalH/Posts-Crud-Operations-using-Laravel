@@ -17,24 +17,30 @@
 
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+            <textarea class="form-control" id="description" rows="3" name="description" > {{old('description')}} </textarea>
         </div>
         <div class="mb-3">
             <label for="createdAt" class="form-label">Created At</label>
-            <input type="date" class="form-control" id="createdAt" name="createdAt">
+            <input type="date" class="form-control" id="createdAt" name="createdAt" value="{{ old('createdAt') }}">
         </div>
         <div class="mb-3">
             <label class="form-label">Post Creator</label>
             <select class="form-select" name="creator">
-                @foreach($posts as $post)
+                {{-- @foreach($posts as $post) --}}
+                <option value="Esraa">Esraa</option>
+                <option value="Gamal">Gamal</option>
+                <option value="Adham">Adham</option>
 
-                <option value="{{$post->postedBy}}">{{$post->postedBy}}</option>
+                {{-- <option value="{{$post->postedBy}}"
+                    {{ old('creator') == $post->postedBy ? 'selected' : '' }}>
+                    {{ $post->postedBy }}
+                </option> --}}
 
-                @endforeach
+                {{-- @endforeach --}}
             </select>
         </div>
         <button type="submit" class="btn btn-success">Create</button>
