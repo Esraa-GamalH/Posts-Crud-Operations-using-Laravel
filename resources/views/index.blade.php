@@ -3,7 +3,7 @@
 @section('container')
 
 
-    <table class="table table-success table-striped">
+    <table class="table table-success table-striped mt-5">
         <tr>
             <th>Id</th>
             <th>Title</th>

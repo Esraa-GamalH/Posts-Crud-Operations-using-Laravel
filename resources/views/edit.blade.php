@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('container')
-    <form class="w-50 m-auto">
+    <form class="w-50 m-auto mt-5">
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control" id="title" name="title">
