@@ -35,6 +35,7 @@ class postController extends Controller
     {
         $post = Post::find($id);
         if ($post) {
+
             // using carbon to format date
             $post->formattedCreatedAt = Carbon::parse($post->createdAt)->format('F j, Y, g:i a');
             return view('show', ["post" => $post]);
@@ -55,15 +56,14 @@ class postController extends Controller
     {
         $valid_data = $request->validate([
             "title" => "sometimes|required|max:255|unique:posts,title,$id",
-            "creator" => "sometimes|required",
+            "postedBy" => "sometimes|required",
             "description" => "sometimes|required",
             "createdAt" => "sometimes|required|date",
         ]);
     
 
         $post = Post::findOrFail($id);
-
-        $post->update(array_filter($valid_data));
+        $post->update($valid_data);
 
         return redirect()->route('posts.show', $post->id);
     }
@@ -85,7 +85,7 @@ class postController extends Controller
         //Validation
         $valid_data = request()->validate([
             "title" => "required|unique:posts| max:255",
-            "creator" => "required",
+            "postedBy" => "required",
             "description" => "required",
             "createdAt" => "required"
         ]);
@@ -96,7 +96,7 @@ class postController extends Controller
         $post->title = $requested_data['title'];
         $post->createdAt = $requested_data['createdAt'];
         $post->description = $requested_data['description'];
-        $post->postedBy = $requested_data['creator'];
+        $post->postedBy = $requested_data['postedBy'];
         $post->save();
         return to_route("posts.show", $post->id);
     }

@@ -25,11 +25,11 @@
         </div>
         <div class="mb-3">
             <label for="createdAt" class="form-label">Created At</label>
-            <input type="date" class="form-control" id="createdAt" name="createdAt" value="{{ old('createdAt') }}">
+            <input type="datetime-local" class="form-control" id="createdAt" name="createdAt" value="{{ old('createdAt') }}">
         </div>
         <div class="mb-3">
             <label class="form-label">Post Creator</label>
-            <select class="form-select" name="creator">
+            <select class="form-select" name="postedBy">
                 {{-- @foreach($posts as $post) --}}
                 <option value="Esraa">Esraa</option>
                 <option value="Gamal">Gamal</option>
