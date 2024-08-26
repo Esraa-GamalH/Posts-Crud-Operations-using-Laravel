@@ -7,6 +7,7 @@
         <h5 class="card-title">Title: {{$post->title}}</h5>
         <p>{{$post->description}}</p>
         <h6>Posted By: {{$post->postedBy}}</h6>
+        <h6>Created At: {{$post->formattedCreatedAt}} </h6>
         <a href="{{route("posts.index")}}" class="btn btn-primary">View All Posts</a>
     </div>
 </div>
