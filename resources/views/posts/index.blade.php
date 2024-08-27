@@ -18,7 +18,7 @@
                 <td>{{$post->postedBy}}</td>
                 <td>{{ $post->formattedCreatedAt }}</td>
                 <td>
-                    <a href="{{route("posts.show", $post->id)}}" class="btn btn-info">View</a>
+                    <a href="{{route("posts.show", $post)}}" class="btn btn-info">View</a>
                     <a href="{{route("posts.edit", $post->id)}}" class="btn btn-primary">Edit</a>
                     <a href="{{route("posts.destroy", $post->id)}}" class="btn btn-danger">Delete</a>
                 </td>
@@ -27,9 +27,9 @@
 
     </table>
 
-    <div class="d-flex justify-content-center mt-4">
+    {{-- <div class="d-flex justify-content-center mt-4">
         {{ $posts->links('pagination::bootstrap-5') }}
-    </div>
+    </div> --}}
     
 
 
