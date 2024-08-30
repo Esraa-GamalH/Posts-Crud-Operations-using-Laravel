@@ -12,7 +12,8 @@ class postController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::paginate(2);
         return view('posts.index', compact('posts'));
     }
 
@@ -30,15 +31,38 @@ class postController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate data
+        $request->validate([
+            "title" => "required|unique:posts| max:255",
+            "postedBy" => "required",
+            "description" => "required",
+            "createdAt" => "required"
+        ],
+    [
+        "title.required"=>"Please Enter a title for the post"
+    ]);
+
+    # save image  --> inside public path
+        $image_path= null;
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $image_path=$image->store("images", 'posts_images');
+        }
+        $request_data= request()->all();
+        $request_data['image']=$image_path; # replace image object with image_uploaded path
+
+        //save data to DB using mass assignment
+        $post = Post::create($request_data);
+        return to_route('posts.show', $post);
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(Post $post)
     {
-        dd($post);
+        return view('posts.show', compact('post'));
     }
 
     /**

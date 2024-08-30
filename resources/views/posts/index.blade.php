@@ -9,6 +9,7 @@
             <th>Title</th>
             <th>Posted By</th>
             <th>Created At</th>
+            <th>Image</th>
             <th>Actions</th>
         </tr>
         @foreach ($posts as $post)
@@ -17,6 +18,7 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->postedBy}}</td>
                 <td>{{ $post->formattedCreatedAt }}</td>
+                <td><img src="{{asset('images/posts/'.$post->image)}}" width="100" height="100"></td>
                 <td>
                     <a href="{{route("posts.show", $post)}}" class="btn btn-info">View</a>
                     <a href="{{route("posts.edit", $post->id)}}" class="btn btn-primary">Edit</a>
@@ -27,9 +29,9 @@
 
     </table>
 
-    {{-- <div class="d-flex justify-content-center mt-4">
-        {{ $posts->links('pagination::bootstrap-5') }}
-    </div> --}}
+    <div class="d-flex justify-content-center mt-4">
+        {{ $posts->links() }}
+    </div>
     
 
 

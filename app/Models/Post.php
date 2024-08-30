@@ -15,6 +15,7 @@ class Post extends Model
         'postedBy',
         'description',
         'createdAt',
+        'image'
     ];
     
 }

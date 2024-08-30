@@ -3,7 +3,7 @@
 @section('container')
     <h1 class="text-success text-center">Create New Post</h1>
 
-    <form class="w-50 m-auto mt-5" action="{{route("posts.store")}}" method="POST">
+    <form class="w-50 m-auto mt-5" action="{{route("posts.store")}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -28,16 +28,25 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label  class="form-label">Image</label>
+            <input type="file" name="image" class="form-control"  >
+            @error('image')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="mb-3">
             <label class="form-label">Post Creator</label>
             <select class="form-select" name="postedBy">
                 <option value="" disabled selected>Please choose a creator for the post</option>
-                @foreach($posts as $post)
+                <option value="Esraa">Esraa</option>
+                <option value="Gamal">Gamal</option>
+                {{-- @foreach($posts as $post)
                 <option value="{{$post->postedBy}}"
                     {{ old('postedBy') == $post->postedBy ? 'selected' : '' }}>
                     {{ old('postedBy') }}
                 </option>
 
-                @endforeach
+                @endforeach --}}
             </select>
             @error('postedBy')
                 <div class="alert alert-danger mt-1">{{$message}}</div>
