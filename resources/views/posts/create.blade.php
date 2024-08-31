@@ -35,20 +35,16 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label class="form-label">Post Creator</label>
-            <select class="form-select" name="postedBy">
-                <option value="" disabled selected>Please choose a creator for the post</option>
-                <option value="Esraa">Esraa</option>
-                <option value="Gamal">Gamal</option>
-                {{-- @foreach($posts as $post)
-                <option value="{{$post->postedBy}}"
-                    {{ old('postedBy') == $post->postedBy ? 'selected' : '' }}>
-                    {{ old('postedBy') }}
-                </option>
+            <label class="form-label">Post author</label>
+            <select class="form-select" name="author_id">
+                <option value="" disabled selected>Please choose an author for the post</option>
+                @foreach($authors as $author)
 
-                @endforeach --}}
+                <option value="{{$author->id}}" {{old('author_id')=== $author->id ? "selected" : ""}}>{{$author->name}}</option>
+
+                @endforeach
             </select>
-            @error('postedBy')
+            @error('author_id')
                 <div class="alert alert-danger mt-1">{{$message}}</div>
             @enderror
         </div>

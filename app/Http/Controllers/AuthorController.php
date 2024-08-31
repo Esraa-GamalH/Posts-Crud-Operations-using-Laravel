@@ -13,6 +13,8 @@ class AuthorController extends Controller
     public function index()
     {
         //
+        $authors = Author::paginate(5);
+        return view('authors.index', compact('authors'));
     }
 
     /**
@@ -21,6 +23,7 @@ class AuthorController extends Controller
     public function create()
     {
         //
+        return view("authors.create");
     }
 
     /**
@@ -29,6 +32,13 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            "name"=> "required|unique:authors,name",
+            "email"=> "required|unique:authors,email|email"
+        ]);
+
+        $author = Author::create($request->all());
+        return view("authors.show", compact('author'));
     }
 
     /**
@@ -37,6 +47,7 @@ class AuthorController extends Controller
     public function show(Author $author)
     {
         //
+        return view("authors.show", compact('author'));
     }
 
     /**

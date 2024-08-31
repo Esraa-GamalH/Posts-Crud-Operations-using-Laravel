@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 
-use App\Http\Controllers\postController;
 
 // Route::get('/posts', [postController::class, "index"])->name("posts.index");
 // Route::get('/posts/create', [postController::class, "create"])->name("posts.create");
@@ -16,4 +15,11 @@ use App\Http\Controllers\postController;
 // Route::post("/posts/{id}", [postController::class, 'update'])->name("posts.update")->where('id', '[0-9]+');
 
 // generate route from resource controller
+use App\Http\Controllers\postController;
+
 Route::resource('posts', postController::class);
+Route::post('/posts/{id}/restore', [PostController::class, 'restore'])->name('posts.restore');
+
+use App\Http\Controllers\AuthorController;
+
+Route::resource('authors', AuthorController::class);

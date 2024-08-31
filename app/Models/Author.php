@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'email'];
+    function posts(){
+        return $this->hasMany(Post::class);
+    }
 }

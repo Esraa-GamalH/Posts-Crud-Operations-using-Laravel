@@ -59,7 +59,7 @@ return [
             "driver" => "local",
             'root' => public_path('images/posts'),
             'visibility' => 'public',
-            'url' => env('APP_URL').'/images/posts',
+            'url' => env('APP_URL').'/public',
             'throw' => false,
         ],
 
