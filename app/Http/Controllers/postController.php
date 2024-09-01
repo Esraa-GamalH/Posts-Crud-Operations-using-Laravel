@@ -44,18 +44,6 @@ class postController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        /* This code is replaced with the StorePostRequest form request */
-    //     //validate data
-    //     $request->validate([
-    //         "title" => "required|unique:posts| max:255",
-    //         "author_id" => "required",
-    //         "description" => "required",
-    //         "createdAt" => "required"
-    //     ],
-    // [
-    //     "title.required"=>"Please Enter a title for the post"
-    // ]);
-
     # save image  --> inside public path
         $image_path= null;
         if($request->hasFile('image')){

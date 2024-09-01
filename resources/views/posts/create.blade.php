@@ -40,7 +40,7 @@
                 <option value="" disabled selected>Please choose an author for the post</option>
                 @foreach($authors as $author)
 
-                <option value="{{$author->id}}" {{old('author_id')=== $author->id ? "selected" : ""}}>{{$author->name}}</option>
+                <option value="{{$author->id}}" {{old('author_id') == $author->id ? "selected" : ""}}>{{$author->name}}</option>
 
                 @endforeach
             </select>

@@ -39,7 +39,7 @@
             <select class="form-select" name="author_id">
                 <option disabled selected>Please choose an author for the post</option>
                 @foreach($authors as $author)
-                    @if($post->author_id === $author->id)
+                    @if($post->author_id == $author->id)
                         <option value="{{$author->id}}" selected>{{$author->name}}</option>
                     @else
                         <option value="{{$author->id}}">{{$author->name}}</option>
