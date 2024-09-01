@@ -60,7 +60,7 @@ class postController extends Controller
         $image_path= null;
         if($request->hasFile('image')){
             $image = $request->file('image');
-            $image_path=$image->store("images", 'posts_images');
+            $image_path=$image->store("", 'posts_images');
         }
         $request_data= $request->validated();
         $request_data['image']=$image_path; # replace image object with image_uploaded path
@@ -120,9 +120,9 @@ class postController extends Controller
     {
 
         // Delete the image when post is deleted
-        if ($post->image) {
-            Storage::disk('posts_images')->delete($post->image);
-        }
+        // if ($post->image) {
+        //     Storage::disk('posts_images')->delete($post->image);
+        // }
         //
         $post->delete();
         return to_route('posts.index')->with('success', 'post deleted successfully');

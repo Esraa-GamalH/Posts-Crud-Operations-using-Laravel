@@ -17,7 +17,7 @@
                 <td>{{$author->email}}</td>
                 <td>
                     <a href="{{route("authors.show", $author)}}" class="btn btn-info">View</a>
-                    <a href="{{route("authors.destroy", $author->id)}}" class="btn btn-danger">Delete</a>
+                    {{-- <a href="{{route("authors.destroy", $author)}}" class="btn btn-danger">Delete</a> --}}
                 </td>
             </tr>
         @endforeach

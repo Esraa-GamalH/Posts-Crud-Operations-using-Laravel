@@ -18,6 +18,8 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="{{route("posts.index")}}">All Posts</a>
                     <a class="nav-link" href="{{route("posts.create")}}">Create Post</a>
+                    <a class="nav-link" href="{{route("authors.create")}}">Add Author</a>
+                    <a class="nav-link" href="{{route("authors.index")}}">All authors</a>
                 </div>
             </div>
         </div>

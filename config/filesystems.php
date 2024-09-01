@@ -57,7 +57,7 @@ return [
         ],
         'posts_images'=>[
             "driver" => "local",
-            'root' => public_path('images/posts'),
+            'root' => public_path('images/posts/images'),
             'visibility' => 'public',
             'url' => env('APP_URL').'/public',
             'throw' => false,

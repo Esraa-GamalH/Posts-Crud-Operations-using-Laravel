@@ -72,5 +72,7 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         //
+        $author->delete();
+        return to_route('authors.index')->with('success', 'Author deleted successfully');
     }
 }
